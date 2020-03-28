@@ -6,9 +6,9 @@ import dva from './dva.png';
 function App() {
 	return (
 		<div>
-            <h1 className="red">hello world!!</h1>
-            <img src={dva} />
-        </div>
+			<h1 className="red">hello world!!</h1>
+			<img src={dva} />
+		</div>
 	);
 }
 

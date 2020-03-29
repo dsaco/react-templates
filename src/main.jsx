@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root';
 
 import store from './stores';
 import { Root } from './routes';
-import './styles/main.css';
+import './styles/main.scss';
 
 const App = hot(Root);
 

@@ -1,13 +1,15 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import dva from './dva.png';
+import logo from './logo.svg';
 
 function App() {
 	return (
-		<div>
-			<h1 className="red">hello world!!</h1>
-			<img src={dva} />
+		<div className="background">
+			<h1 className="title">
+				<img src={logo} className="logo" />
+				<span>React</span>
+			</h1>
 		</div>
 	);
 }

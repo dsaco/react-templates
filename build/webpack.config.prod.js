@@ -34,7 +34,7 @@ module.exports = merge(baseConfig, {
                 ],
             },
             {
-                test:/\.(gif|jpg|png)$/,
+                test:/\.(gif|jpg|png|svg)$/,
                 use:'file-loader?name=images/[name].[ext]',
             },
         ],

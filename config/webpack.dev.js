@@ -9,6 +9,12 @@ module.exports = merge(commonConfig, {
     module: {
         rules: [
             {
+                enforce: "pre",
+                test: /\.jsx?$/,
+                use: 'eslint-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',

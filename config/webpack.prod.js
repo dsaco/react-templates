@@ -6,10 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const baseConfig = require('./webpack.common');
+const commonConfig = require('./webpack.common');
 
-module.exports = merge(baseConfig, {
+module.exports = merge(commonConfig, {
     mode: 'production',
+    devtool: 'source-map',
     output: {
         filename: 'scripts/[name].[chunkhash:8].js',
         path: path.resolve(__dirname, '../dist'),

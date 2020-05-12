@@ -1,16 +1,21 @@
 import React from 'react';
+import { Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
-import logo from './logo.svg';
+import BasicLayout from './layouts/BasicLayout';
+import { routes, RouteWithSubRoutes } from './routes';
+
+import './styles/main.scss';
 
 function App() {
 	return (
-		<div className="background">
-			<h1 className="title">
-				<img src={logo} className="logo" />
-				<span>React</span>
-			</h1>
-		</div>
+		<BasicLayout>
+			<Switch>
+				{routes.map((route, i) => (
+					<RouteWithSubRoutes key={i} {...route} />
+				))}
+			</Switch>
+		</BasicLayout>
 	);
 }
 

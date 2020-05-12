@@ -4,44 +4,41 @@ const merge = require('webpack-merge');
 const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
-    mode: 'development',
-    devtool: 'cheap-module-source-map',
-    module: {
-        rules: [
-            {
-                enforce: "pre",
-                test: /\.jsx?$/,
-                use: 'eslint-loader',
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            ident: 'postcss',
-                            plugins: [
-                                require('autoprefixer'),
-                            ],
-                        },
+	mode: 'development',
+	devtool: 'cheap-module-source-map',
+	module: {
+		rules: [
+			{
+				enforce: 'pre',
+				test: /\.jsx?$/,
+				use: 'eslint-loader',
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.s?css$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							ident: 'postcss',
+							plugins: [require('autoprefixer')],
+						},
                     },
-                ],
-            },
-            {
-                test: /\.(gif|jpg|png|svg)$/,
-                use: 'url-loader',
-            },
-        ],
-    },
-    devServer: {
-        hot: true,
-        port: 3000,
-        open: true,
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-    ],
+                    'sass-loader',
+				],
+			},
+			{
+				test: /\.(gif|jpg|png|svg)$/,
+				use: 'url-loader',
+			},
+		],
+	},
+	devServer: {
+		hot: true,
+		port: 3000,
+		open: true,
+	},
+	plugins: [new webpack.HotModuleReplacementPlugin()],
 });

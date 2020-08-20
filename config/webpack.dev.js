@@ -14,6 +14,12 @@ module.exports = merge(baseConfig, {
 	module: {
 		rules: [
 			{
+				enforce: 'pre',
+				test: /\.jsx?$/,
+				use: 'eslint-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.s?css$/,
 				use: [
 					'style-loader',

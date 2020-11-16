@@ -27,8 +27,9 @@ module.exports = merge(baseConfig, {
 					{
 						loader: 'postcss-loader',
 						options: {
-							ident: 'postcss',
-							plugins: [require('autoprefixer')],
+							postcssOptions: {
+								plugins: ['postcss-preset-env'],
+							},
 						},
 					},
 					'sass-loader',
@@ -40,7 +41,6 @@ module.exports = merge(baseConfig, {
 		hot: true,
 		host: HOST,
 		port: PORT,
-		// open: true,
 		// disableHostCheck: true,
 		after: () => {
 			openBrowser(`http://${HOST}:${PORT}`);

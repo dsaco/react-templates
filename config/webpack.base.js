@@ -12,6 +12,8 @@ module.exports = {
 			'@/components': path.resolve(__dirname, '../src/components'),
 		},
 	},
+	// 修复HMR失效问题 https://github.com/webpack/webpack-dev-server/issues/2758
+	target: 'web',
 	module: {
 		rules: [
 			{

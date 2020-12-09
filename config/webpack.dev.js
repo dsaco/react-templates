@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const openBrowser = require('react-dev-utils/openBrowser');
 
 const baseConfig = require('./webpack.base');
@@ -14,9 +15,15 @@ module.exports = merge(baseConfig, {
 	module: {
 		rules: [
 			{
-				enforce: 'pre',
 				test: /\.jsx?$/,
-				use: 'eslint-loader',
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							plugins: [require.resolve('react-refresh/babel')],
+						},
+					},
+				],
 				exclude: /node_modules/,
 			},
 			{
@@ -53,5 +60,8 @@ module.exports = merge(baseConfig, {
 			},
 		},
 	},
-	plugins: [new webpack.HotModuleReplacementPlugin()],
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new ReactRefreshWebpackPlugin(),
+	],
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import styled from 'styled-components';
 
 import logo from './logo.svg';
@@ -11,7 +10,7 @@ const StyledTitle = styled.h1`
 	align-items: center;
 `;
 
-function App() {
+export default function App() {
 	return (
 		<div className="background">
 			<StyledTitle>
@@ -22,5 +21,3 @@ function App() {
 		</div>
 	);
 }
-
-export default hot(App);

@@ -17,11 +17,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.jsx?$/,
-				use: 'babel-loader',
-				exclude: /node_modules/,
-			},
-			{
 				test: /\.(gif|jpe?g|png|svg)$/,
 				loader: 'url-loader',
 				options: {

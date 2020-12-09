@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const openBrowser = require('react-dev-utils/openBrowser');
 
 const baseConfig = require('./webpack.base');
@@ -64,5 +65,8 @@ module.exports = merge(baseConfig, {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new ReactRefreshWebpackPlugin(),
+		new ESLintPlugin({
+			extensions: ['js', 'jsx'],
+		}),
 	],
 });

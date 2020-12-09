@@ -9,6 +9,8 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
+			'@/assets': path.resolve(__dirname, '../src/assets'),
+			'@/pages': path.resolve(__dirname, '../src/pages'),
 			'@/components': path.resolve(__dirname, '../src/components'),
 			'@/pages': path.resolve(__dirname, '../src/pages'),
 		},
@@ -17,11 +19,6 @@ module.exports = {
 	target: 'web',
 	module: {
 		rules: [
-			{
-				test: /\.jsx?$/,
-				use: 'babel-loader',
-				exclude: /node_modules/,
-			},
 			{
 				test: /\.(gif|jpe?g|png|svg)$/,
 				loader: 'url-loader',

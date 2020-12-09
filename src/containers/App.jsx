@@ -1,11 +1,10 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { hot } from 'react-hot-loader/root';
 
 import Layout from './Layout';
 import { routes, RouteWithSubRoutes } from '../routes';
 
-function App() {
+export default function App() {
 	return (
 		<Layout>
 			<Switch>
@@ -16,5 +15,3 @@ function App() {
 		</Layout>
 	);
 }
-
-export default hot(App);

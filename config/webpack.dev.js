@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const openBrowser = require('react-dev-utils/openBrowser');
 
 const baseConfig = require('./webpack.base');
@@ -13,6 +14,18 @@ module.exports = merge(baseConfig, {
 	devtool: 'cheap-module-source-map',
 	module: {
 		rules: [
+			{
+				test: /\.jsx?$/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							plugins: [require.resolve('react-refresh/babel')],
+						},
+					},
+				],
+				exclude: /node_modules/,
+			},
 			{
 				test: /\.s?css$/,
 				use: [
@@ -37,6 +50,7 @@ module.exports = merge(baseConfig, {
 		port: PORT,
 		// disableHostCheck: true,
 		after: () => {
+		// onAfterSetupMiddleware: () => {
 			openBrowser(`http://${HOST}:${PORT}`);
 		},
 		proxy: {
@@ -47,5 +61,8 @@ module.exports = merge(baseConfig, {
 			},
 		},
 	},
-	plugins: [new webpack.HotModuleReplacementPlugin()],
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new ReactRefreshWebpackPlugin(),
+	],
 });

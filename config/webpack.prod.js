@@ -23,6 +23,11 @@ module.exports = merge(baseConfig, {
 	module: {
 		rules: [
 			{
+				test: /\.jsx?$/,
+				use: 'babel-loader',
+				exclude: /node_modules/,
+			},
+			{
 				test: /\.s?css$/,
 				use: [
 					{

@@ -50,6 +50,7 @@ module.exports = merge(baseConfig, {
 		port: PORT,
 		// disableHostCheck: true,
 		after: () => {
+		// onAfterSetupMiddleware: () => {
 			openBrowser(`http://${HOST}:${PORT}`);
 		},
 		proxy: {
